@@ -1,0 +1,18 @@
+<div>
+  <input type="text" [(ngModel)]="hero.name" #name>
+  <button (click)="addHero();name.value= '';">添加</button>
+</div>
+
+<ul class="hero-list">
+  <li *ngFor="let hero of heroes"
+      (click)="selectHero(hero)">
+    <label>{{hero.id}}</label>
+    {{hero.name}}
+    <button (click)="removeHero(hero)">X</button>
+  </li>
+</ul>
+
+<div *ngIf="currentHero">
+  我的英雄是:{{currentHero.name}}
+  <button>查看详情</button>
+</div>
